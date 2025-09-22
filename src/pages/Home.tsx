@@ -1,15 +1,17 @@
 export default function Home() {
   return (
-    <section id="home" data-section="home" className="relative scroll-mt-20 py-16 sm:py-24">
+    <section id="home" data-section="home" className="relative scroll-mt-20 min-h-[70vh] sm:min-h-[80vh] py-16 sm:py-24 flex items-center">
       {/* Background image + overlay */}
       <div className="absolute inset-0 -z-10">
         <img
           src="/hero.jpg"
           alt="Aayush background"
-          loading="lazy"
+          loading="eager"
+          fetchpriority="high"
           className="h-full w-full object-cover"
+          style={{ objectPosition: 'center 30%' }}
         />
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/10"></div>
       </div>
 
       <div className="container-default">
@@ -21,9 +23,9 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap gap-3">
               <a className="btn" href="/resume.pdf" target="_blank" rel="noreferrer">Resume PDF</a>
-              <a className="btn-outline bg-white/10 backdrop-blur" href="https://github.com/aayush-kushwaha" target="_blank" rel="noreferrer">GitHub</a>
-              <a className="btn-outline bg-white/10 backdrop-blur" href="https://linkedin.com/in/aayushkushwaha" target="_blank" rel="noreferrer">LinkedIn</a>
-              <a className="btn-outline bg-white/10 backdrop-blur" href="mailto:kushwaha@uab.edu">Email</a>
+              <a className="btn-outline-white backdrop-blur" href="https://github.com/aayush-kushwaha" target="_blank" rel="noreferrer">GitHub</a>
+              <a className="btn-outline-white backdrop-blur" href="https://linkedin.com/in/aayushkushwaha" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a className="btn-outline-white backdrop-blur" href="mailto:kushwaha@uab.edu">Email</a>
             </div>
           </div>
           <div className="order-first md:order-last">
