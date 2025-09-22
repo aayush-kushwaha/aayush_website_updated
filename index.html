@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Aayush Kushwaha – Backend Developer</title>
+    <meta name="description" content="Aayush Kushwaha – Backend Developer and MSCS student at UAB. FastAPI, Python, PostgreSQL, Redis, RabbitMQ, Docker, Nginx." />
+    <meta name="keywords" content="Aayush Kushwaha, Backend Developer, UAB, FastAPI, Python, PostgreSQL, Redis, RabbitMQ, DigitalOcean" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aayushkushwaha.com" />
+    <meta property="og:title" content="Aayush Kushwaha – Backend Developer" />
+    <meta property="og:description" content="Backend Developer | MSCS at UAB. FastAPI, Python, PostgreSQL, Redis, RabbitMQ." />
+    <meta property="og:image" content="/placeholder.svg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://aayushkushwaha.com" />
+    <meta property="twitter:title" content="Aayush Kushwaha – Backend Developer" />
+    <meta property="twitter:description" content="Backend Developer | MSCS at UAB. FastAPI, Python, PostgreSQL, Redis, RabbitMQ." />
+    <meta property="twitter:image" content="/placeholder.svg" />
+
+    <!-- Theme color -->
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1210" />
+  </head>
+  <body class="bg-white text-gray-900 antialiased dark:bg-gray-950 dark:text-gray-100">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+  <script>
+    // Persisted theme on initial paint to avoid FOUC
+    (function () {
+      try {
+        const storage = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (storage === 'dark' || (!storage && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (_) {}
+    })();
+  </script>
+</html>
+
