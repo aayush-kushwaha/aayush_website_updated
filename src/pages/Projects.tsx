@@ -43,6 +43,7 @@ export default function Projects() {
           imageSrc="/placeholder.svg"
           badges={["FastAPI", "WebSockets", "PostgreSQL"]}
           githubUrl="https://github.com/aayush-kushwaha"
+          demoUrl="https://aayushkushwaha.com.np"
         />
         <ProjectCard
           title="Personal Portfolio Website"
