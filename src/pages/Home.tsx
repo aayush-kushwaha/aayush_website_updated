@@ -15,11 +15,11 @@ export default function Home() {
       </div>
 
       <div className="container-default">
-        <div className="grid items-center gap-10">
-          <div className="text-white max-w-2xl">
+        <div className="grid items-center justify-items-start gap-10 md:grid-cols-12">
+          <div className="text-white max-w-2xl lg:max-w-lg md:col-span-5">
             <h1 className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl drop-shadow">Hi, I’m Aayush Kushwaha 👋</h1>
             <p className="mb-8 text-lg text-gray-100/90 drop-shadow">
-              Backend Developer | MSCS Student at University of Alabama at Birmingham
+              Backend Developer | MSCS Student at University of Alabama at Birmingham (UAB)
             </p>
             <div className="flex flex-wrap gap-3">
               <a className="btn" href="/resume.pdf" target="_blank" rel="noreferrer">Resume PDF</a>
@@ -29,6 +29,7 @@ export default function Home() {
               <a className="btn-outline-white backdrop-blur" href="/projects">See Projects</a>
             </div>
           </div>
+          <div className="hidden md:block md:col-span-7" />
         </div>
       </div>
     </section>
