@@ -43,3 +43,19 @@
 .section-title {
   @apply mb-6 text-3xl font-semibold tracking-tight;
 }
+
+/* Typewriter caret */
+.typewriter-caret {
+  display: inline-block;
+  width: 1px;
+  height: 1em;
+  margin-left: 2px;
+  vertical-align: -0.15em;
+  background-color: currentColor;
+  animation: tw-caret-blink 1s steps(2, start) infinite;
+}
+
+@keyframes tw-caret-blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}

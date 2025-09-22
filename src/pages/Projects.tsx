@@ -27,9 +27,10 @@ export default function Projects() {
           ]}
           stack="FastAPI, Streamlit, PostgreSQL"
           imageAlt="Gym Management"
-          imageSrc="/placeholder.svg"
+          imageSrc="/tdfc.jpg"
           badges={["FastAPI", "Streamlit", "PostgreSQL"]}
           githubUrl="https://github.com/aayush-kushwaha"
+          demoUrl="https://the-dragon-fitness-center.streamlit.app/"
         />
         <ProjectCard
           title="Real-Time Chat Application"
