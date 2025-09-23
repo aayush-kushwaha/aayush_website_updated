@@ -60,6 +60,20 @@ export default function Navbar() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
+          {/* Geek mode button (desktop) */}
+          <a
+            href="https://aayush-kushwaha.github.io/terminal_website/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:inline-flex items-center gap-2 rounded-md border border-emerald-400 bg-black/80 px-3 py-2 font-mono text-sm text-emerald-300 shadow-[0_0_10px_rgba(16,185,129,0.5)] transition-colors hover:bg-black hover:text-emerald-200"
+            aria-label="Open Geek mode"
+          >
+            {/* Terminal icon */}
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 7l4 4-4 4M12 17h8" />
+            </svg>
+            Geek mode
+          </a>
           <ThemeToggle />
           <MobileMenu />
         </div>
@@ -98,6 +112,19 @@ function MobileMenu() {
                 {item.label}
               </NavLink>
             ))}
+            {/* Geek mode button (mobile menu) */}
+            <a
+              href="https://aayush-kushwaha.github.io/terminal_website/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-1 inline-flex items-center gap-2 rounded-md border border-emerald-400 bg-black px-3 py-2 font-mono text-sm text-emerald-300 shadow-[0_0_10px_rgba(16,185,129,.5)] hover:bg-gray-900"
+              onClick={() => setOpen(false)}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 7l4 4-4 4M12 17h8" />
+              </svg>
+              Geek mode
+            </a>
           </div>
         </div>
       )}
