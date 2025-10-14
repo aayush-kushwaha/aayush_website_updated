@@ -1,4 +1,4 @@
-**Aayush Kushwaha – Personal Portfolio**
+**Aayush Kushwaha - Personal Portfolio**
 
 - Stack: React (Vite) + TypeScript + TailwindCSS
 - Live domain target: `aayushkushwaha.com`
@@ -22,11 +22,18 @@ Project images use in-card placeholders; replace later with real assets.
 
 **Project Structure**
 
-- `index.html` – SEO metas, favicon, theme bootstrap
-- `src/` – React app, pages and components
-- `public/` – static assets (`favicon.svg`, `robots.txt`, `resume.pdf` placeholder path)
+- `index.html` - SEO metas, favicon, theme bootstrap
+- `src/` - React app, pages and components
+- `public/` - static assets (`favicon.svg`, `robots.txt`, `resume.pdf` placeholder path)
 
 ---
+
+**Deployment (GitHub Pages)**
+
+- Push to `main` triggers the GitHub Actions workflow (`.github/workflows/deploy.yml`).
+- First run: open Settings -> Pages, choose "GitHub Actions" to activate Pages.
+- After the workflow finishes, the site is served at `https://aayush-kushwaha.github.io/aayush_website_updated/`.
+- When you switch to a custom domain, add the CNAME in Pages settings and update DNS.
 
 **Deployment (Nginx on Ubuntu/DigitalOcean)**
 
