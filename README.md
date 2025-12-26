@@ -19,7 +19,7 @@ Place your resume at `public/resume.pdf` (the Resume page links to it).
 Project images use in-card placeholders; replace later with real assets.
 
 ---
-    
+
 **Project Structure**
 
 - `index.html` - SEO metas, favicon, theme bootstrap
@@ -104,4 +104,3 @@ server {
 - If deploying as a subpath, adjust router or Nginx accordingly.
 
 # aayush_website_updated
-
