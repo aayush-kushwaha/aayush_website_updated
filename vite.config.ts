@@ -7,5 +7,12 @@ const repoBase = '/aayush_website_updated/'
 export default defineConfig(({ mode }) => ({
   base: mode === 'production' ? repoBase : '/',
   plugins: [react()],
+  server: {
+    proxy: {
+      '/api/yoosh': {
+        target: 'http://127.0.0.1:5055',
+        changeOrigin: true,
+      },
+    },
+  },
 }))
-

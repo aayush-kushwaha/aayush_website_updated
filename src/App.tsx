@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import ScrollToTop from './components/ScrollToTop'
 import Footer from './components/Footer'
+import YooshWidget from './components/YooshWidget'
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
         <Outlet />
       </main>
       <Footer />
+      <YooshWidget />
     </div>
   )
 }
