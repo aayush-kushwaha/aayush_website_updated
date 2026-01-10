@@ -21,10 +21,21 @@ export default function YooshChatWidget() {
     try {
       const stored = localStorage.getItem(STORAGE_KEY)
       if (!stored) return
-      const parsed = JSON.parse(stored)
+      const parsed: unknown = JSON.parse(stored)
+
       if (Array.isArray(parsed)) {
-        setMessages(parsed)
-        if (parsed.length > 0) hasGreetedRef.current = true
+        const safeParsed: ChatMessage[] = parsed
+          .filter(
+            (m): m is { role: unknown; content: unknown } =>
+              typeof m === 'object' && m !== null && 'role' in m && 'content' in m
+          )
+          .map((m) => ({
+            role: m.role === 'user' || m.role === 'assistant' ? m.role : 'assistant',
+            content: typeof m.content === 'string' ? m.content : String(m.content),
+          }))
+
+        setMessages(safeParsed)
+        if (safeParsed.length > 0) hasGreetedRef.current = true
       }
     } catch (err) {
       console.warn('Failed to load Yoosh chat history', err)
@@ -56,11 +67,14 @@ export default function YooshChatWidget() {
   async function sendMessage() {
     const content = input.trim()
     if (!content || isLoading) return
-    const nextMessages = [...messages, { role: 'user', content }]
+
+    const nextMessages: ChatMessage[] = [...messages, { role: 'user', content }]
     setMessages(nextMessages)
+
     setInput('')
     setError('')
     setIsLoading(true)
+
     try {
       const res = await fetch('/api/yoosh/chat', {
         method: 'POST',
@@ -68,9 +82,14 @@ export default function YooshChatWidget() {
         body: JSON.stringify({ messages: nextMessages }),
       })
       if (!res.ok) throw new Error('Request failed')
-      const data = await res.json()
-      if (!data?.reply) throw new Error('Invalid response')
-      setMessages([...nextMessages, { role: 'assistant', content: String(data.reply) }])
+
+      const data: unknown = await res.json()
+      const reply =
+        typeof (data as any)?.reply === 'string' ? (data as any).reply : String((data as any)?.reply ?? '')
+
+      if (!reply) throw new Error('Invalid response')
+
+      setMessages([...nextMessages, { role: 'assistant', content: reply }])
     } catch (err) {
       console.error('Yoosh chat failed', err)
       setError('Yoosh is unavailable right now. Try again soon.')
@@ -94,11 +113,9 @@ export default function YooshChatWidget() {
               ✕
             </button>
           </div>
+
           <div className="flex h-full flex-col">
-            <div
-              ref={listRef}
-              className="flex-1 space-y-3 overflow-y-auto px-4 py-3 text-sm"
-            >
+            <div ref={listRef} className="flex-1 space-y-3 overflow-y-auto px-4 py-3 text-sm">
               {messages.map((message, index) => (
                 <div
                   key={`${message.role}-${index}`}
@@ -106,28 +123,27 @@ export default function YooshChatWidget() {
                 >
                   <div
                     className={`max-w-[80%] rounded-2xl px-3 py-2 leading-relaxed ${
-                      message.role === 'user'
-                        ? 'bg-accent text-white'
-                        : 'bg-gray-800 text-gray-100'
+                      message.role === 'user' ? 'bg-accent text-white' : 'bg-gray-800 text-gray-100'
                     }`}
                   >
                     {message.content}
                   </div>
                 </div>
               ))}
+
               {isLoading && (
                 <div className="flex justify-start">
-                  <div className="rounded-2xl bg-gray-800 px-3 py-2 text-gray-200">
-                    Thinking...
-                  </div>
+                  <div className="rounded-2xl bg-gray-800 px-3 py-2 text-gray-200">Thinking...</div>
                 </div>
               )}
             </div>
+
             {error && (
               <div className="px-4 pb-2 text-xs text-red-400" role="status">
                 {error}
               </div>
             )}
+
             <div className="border-t border-gray-800 px-3 py-3">
               <div className="flex items-end gap-2">
                 <textarea
@@ -156,6 +172,7 @@ export default function YooshChatWidget() {
           </div>
         </div>
       )}
+
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
@@ -167,3 +184,4 @@ export default function YooshChatWidget() {
     </>
   )
 }
+

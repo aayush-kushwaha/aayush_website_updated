@@ -1,1 +1,10 @@
+node_modules/
+yoosh-api/node_modules/
+dist/
+.env
+yoosh-api/.env
+tsconfig.tsbuildinfo
+.vite/
+.DS_Store
+Thumbs.db
 .DS_Store

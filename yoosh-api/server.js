@@ -168,6 +168,7 @@ app.post('/api/yoosh/chat', rateLimit, async (req, res) => {
   }
 })
 
+const host = process.env.HOST || '127.0.0.1'
 const port = process.env.PORT || 5055
 app.listen(port, () => {
   console.log(`Yoosh API listening on port ${port}`)

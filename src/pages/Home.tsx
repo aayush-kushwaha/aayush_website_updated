@@ -9,7 +9,7 @@ export default function Home() {
           src="/hero.jpg"
           alt="Aayush background"
           loading="eager"
-          fetchpriority="high"
+          fetchPriority="high"
           className="h-full w-full object-cover"
           style={{ objectPosition: 'center 30%' }}
         />
