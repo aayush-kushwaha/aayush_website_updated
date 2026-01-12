@@ -6,17 +6,18 @@ export default function Projects() {
       <h2 className="section-title">Projects</h2>
       <div className="grid gap-6 sm:grid-cols-2">
         <ProjectCard
-          title="DigitalPetro IoT Automation"
+          title="Adversarial Machine Learning: FGSM & PGD on CIFAR-10"
           bullets={[
-            "Optimized dashboard API load time by 98%.",
-            "Implemented RabbitMQ for data credibility & reliability.",
-            "Improved system reliability from 92% → 98%."
+            "Trained a SimpleCNN on CIFAR-10 (83.92% clean accuracy).",
+            "Implemented FGSM and PGD attacks across multiple ε values.",
+            "Measured Adversarial Accuracy and Attack Success Rate (ASR).",
+            "Visualized clean vs adversarial samples and perturbation heatmaps.",
           ]}
-          stack="Python, FastAPI, Redis, RabbitMQ, Elasticsearch, PostgreSQL"
-          imageAlt="DigitalPetro"
-          imageSrc="/placeholder.svg"
-          badges={["FastAPI", "RabbitMQ", "Redis", "Elasticsearch", "PostgreSQL"]}
-          githubUrl="https://github.com/aayush-kushwaha"
+          stack="PyTorch, Torchvision, NumPy, Matplotlib, Jupyter"
+          imageAlt="Adversarial Machine Learning"
+          imageSrc="/adversial_machine_learning.jpg"
+          badges={["PyTorch", "Torchvision", "NumPy", "Matplotlib", "Jupyter"]}
+          githubUrl="https://github.com/aayush-kushwaha/Adversarial_Machine_Learning"
         />
         <ProjectCard
           title="The Dragon Fitness Center (Gym Management System)"
@@ -55,7 +56,7 @@ export default function Projects() {
           ]}
           stack="React, FastAPI, Nginx, DigitalOcean"
           imageAlt="Portfolio"
-          imageSrc="/placeholder.svg"
+          imageSrc="/aayush_landing_page.png"
           badges={["React", "FastAPI", "Nginx", "DigitalOcean"]}
           githubUrl="https://github.com/aayush-kushwaha"
           demoUrl="https://aayushkushwaha.com.np"
